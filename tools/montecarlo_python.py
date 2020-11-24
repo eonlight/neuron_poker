@@ -402,7 +402,7 @@ def get_equity(player_cards, table_cards, players, runs):
     """Get equity from a monteacrlo run"""
     simulation = MonteCarlo()
     simulation.run_montecarlo([list(player_cards)], list(table_cards), players, 1, maxRuns=runs,
-                              timeout=time.time() + 1, ghost_cards='', opponent_range=1)
+                              timeout=time.time() + 1, ghost_cards='', opponent_range=0.25)
     return simulation.equity
 
 
@@ -410,11 +410,12 @@ if __name__ == '__main__':
     Simulation = MonteCarlo()
     log = logging.getLogger('Montecarlo main')
     log.setLevel(logging.DEBUG)
-    # my_cards = [['2D', 'AD']]
-    # cards_on_table = ['3S', 'AH', '8D']
+    my_cards = [['2D', 'AD']]
+    cards_on_table = ['3S', 'AH', '8D']
     # my_cards = [['KS', 'KC']]
-    my_cards = [{'AKO', 'AA'}]
-    cards_on_table = ['3D', '9H', 'AS', '7S', 'QH']
+    #my_cards = [{'A2O'}]
+    #my_cards = [{'AKO', 'AA'}]
+    #cards_on_table = ['3D', '9H', 'AS', '7S', 'QH']
     players = 3
     secs = 5
     maxruns = 10000

@@ -159,6 +159,11 @@ class HoldemTable(Env):
         self.action_space = Discrete(len(Action) - 2)
         self.first_action_for_hand = None
 
+    def __str__(self):
+        rstr = "HoldemTable(\n{}\n)"
+        attrs = "\n".join("{}: {} | {}".format(k, type(self.__dict__[k]), self.__dict__[k]) for k in self.__dict__)
+        return rstr.format(attrs)
+
     def reset(self):
         """Reset after game over."""
         self.observation = None
@@ -872,8 +877,7 @@ class PlayerCycle:
 
     def update_alive(self):
         """Update the alive property"""
-        self.alive = np.array(self.can_still_make_moves_in_this_hand) + \
-                     np.array(self.out_of_cash_but_contributed)
+        self.alive = np.array(self.can_still_make_moves_in_this_hand) + np.array(self.out_of_cash_but_contributed)
 
     def get_potential_winners(self):
         """Players eligible to win the pot"""

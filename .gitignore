@@ -27,3 +27,7 @@ Graph/
 /EquityCalculatorMontecarlo.pdb
 /EquityCalculatorMontecarlo.pyd
 /python37.dll
+*.so
+*.json
+*.pkl
+*.h5

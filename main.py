@@ -78,7 +78,6 @@ def command_line_parser():
         elif args['dqn_play']:
             runner.dqn_play_keras_rl(model_name)
 
-
     else:
         raise RuntimeError("Argument not yet implemented")
 
